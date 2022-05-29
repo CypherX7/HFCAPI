@@ -1,5 +1,5 @@
 #!/bin/bash
-gnome-terminal --full-screen -- tmux new-session \; \
+tmux new-session \; \
   send-keys 'uvicorn main:app --reload' C-m \; \
   split-window -v \; \
   send-keys 'ngrok http 8000' C-m \;\
