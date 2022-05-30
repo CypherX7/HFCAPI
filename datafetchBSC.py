@@ -4,15 +4,14 @@ import time
 
 while True:
     try:
-        time.sleep(1)
         w3BSC = Web3(Web3.HTTPProvider("https://speedy-nodes-nyc.moralis.io/db66f798f03c28b4ccf9b81c/bsc/mainnet")) 
         with open('./ABI.json') as f:
             ABI = json.load(f)
             f.close()
             HFCBSC = w3BSC.eth.contract(address='0x849741B79bc1618b46CF9ec600E94E771DEde601',abi=ABI)
             while True:
-                time.sleep(2)
-                for i in range(1,50):
+                time.sleep(1)
+                for i in range(1,5):
                     pricee = (HFCBSC.functions.price().call()/(10**18))
                     totalsupply = (HFCBSC.functions.totalSupply().call()/(10**18))
                     with open('./DATA.json','r') as k:

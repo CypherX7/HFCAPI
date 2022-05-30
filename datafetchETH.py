@@ -4,15 +4,14 @@ import time
 
 while True:
     try:
-        time.sleep(1)
         w3ETH = Web3(Web3.HTTPProvider("https://speedy-nodes-nyc.moralis.io/db66f798f03c28b4ccf9b81c/eth/mainnet")) 
         with open('./ABI.json') as f:
             ABI = json.load(f)
             f.close()
             HFCETH = w3ETH.eth.contract(address=Web3.toChecksumAddress('0xe1b2ba089ea5ac932dad7d98b897a895d681d3a6'),abi=ABI)
             while True:
-                time.sleep(2)
-                for i in range(1,50):
+                time.sleep(1)
+                for i in range(1,5):
                     pricee = (HFCETH.functions.price().call()/(10**18))
                     totalsupply = (HFCETH.functions.totalSupply().call()/(10**18))
                     with open('./DATA.json','r') as k:
