@@ -39,5 +39,5 @@ while True:
                             n.close()
                     else:
                         m.close()
-    except Exception as e::
+    except Exception as e:
         print("Error:",e)
