@@ -3,17 +3,19 @@ import json
 import time
 
 while True:
+    time.sleep(2)
     try:
-        w3BSC = Web3(Web3.HTTPProvider("https://speedy-nodes-nyc.moralis.io/db66f798f03c28b4ccf9b81c/bsc/mainnet")) 
+        print("IN")
+        w3 = Web3(Web3.HTTPProvider("https://speedy-nodes-nyc.moralis.io/db66f798f03c28b4ccf9b81c/bsc/mainnet")) 
         with open('./ABI.json') as f:
             ABI = json.load(f)
             f.close()
-            HFCBSC = w3BSC.eth.contract(address='0x849741B79bc1618b46CF9ec600E94E771DEde601',abi=ABI)
+            HFC = w3.eth.contract(address='0x849741B79bc1618b46CF9ec600E94E771DEde601',abi=ABI)
             while True:
-                time.sleep(1)
-                for i in range(1,5):
-                    pricee = (HFCBSC.functions.price().call()/(10**18))
-                    totalsupply = (HFCBSC.functions.totalSupply().call()/(10**18))
+                try:
+                    time.sleep(0.2)
+                    pricee = (HFC.functions.price().call()/(10**18))
+                    totalsupply = (HFC.functions.totalSupply().call()/(10**18))
                     with open('./DATA.json','r') as k:
                         data = (json.load(k))
                         if (list(data["BSC"]["PRICE"].values())[-1]) != pricee:
@@ -38,5 +40,7 @@ while True:
                                 n.close()
                         else:
                             m.close()
+                except:
+                    break
     except:
         print("Error")
