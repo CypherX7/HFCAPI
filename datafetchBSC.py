@@ -42,5 +42,5 @@ while True:
                             m.close()
                 except:
                     break
-    except:
-        print("Error")
+    except Exception as e:
+        print("Error:",e)
