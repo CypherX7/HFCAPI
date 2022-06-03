@@ -10,7 +10,7 @@ while True:
         with open('./ABI.json') as f:
             ABI = json.load(f)
             f.close()
-            HFC = w3.eth.contract(address='0x849741B79bc1618b46CF9ec600E94E771DEde601',abi=ABI)
+            HFC = w3.eth.contract(address=Web3.toChecksumAddress('0x849741B79bc1618b46CF9ec600E94E771DEde601'),abi=ABI)
             while True:
                 try:
                     time.sleep(0.2)

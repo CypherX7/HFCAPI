@@ -2,7 +2,7 @@
 tmux new-session \; \
   send-keys 'uvicorn main:app --reload' C-m \; \
   split-window -v \; \
-  send-keys 'ngrok http 8000' C-m \;\
+  send-keys 'neofetch' C-m \;\
   split-window -h \; \
   send-keys 'python3 datafetchETH.py' C-m \; \
   select-pane -t 0 \; \
