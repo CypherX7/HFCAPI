@@ -12,7 +12,7 @@ while True:
             f.close()
             HFC = w3.eth.contract(address=Web3.toChecksumAddress('0xe1b2ba089ea5ac932dad7d98b897a895d681d3a6'),abi=ABI)
             while True:
-                time.sleep(0.2)
+                time.sleep(0.5)
                 pricee = (HFC.functions.price().call()/(10**18))
                 totalsupply = (HFC.functions.totalSupply().call()/(10**18))
                 with open('./DATA.json','r') as k:
