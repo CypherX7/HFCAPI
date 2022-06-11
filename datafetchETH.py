@@ -6,7 +6,7 @@ while True:
     time.sleep(2)
     try:
         print("IN")
-        w3 = Web3(Web3.HTTPProvider("https://speedy-nodes-nyc.moralis.io/db66f798f03c28b4ccf9b81c/eth/mainnet")) 
+        w3 = Web3(Web3.HTTPProvider("https://cloudflare-eth.com/")) 
         with open('./ABI.json') as f:
             ABI = json.load(f)
             f.close()
