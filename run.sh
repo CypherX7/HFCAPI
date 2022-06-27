@@ -8,5 +8,3 @@ tmux new-session \; \
   select-pane -t 0 \; \
   split-window -h \; \
   send-keys 'python3 datafetchBSC.py' C-m \;
-  split-window -h \; \
-  send-keys 'python3 datafetchMATIC.py' C-m \;
