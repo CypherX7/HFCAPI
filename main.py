@@ -21,4 +21,7 @@ def ethx():
 
 @app.get("/polygon")
 def polygon():
-    return {"DATA":"POLYGON"}
+    f = open("./DATA.json",'r')
+    data = f.read()
+    f.close()
+    return json.loads(data)["MATIC"];
